@@ -4,6 +4,8 @@
 
 - Check the lists and tuples methods
 
+- Check a proper pandas documentation or cheat sheet
+
 ## Tips
 
 > / - Float Division; // - Int Division
@@ -12,7 +14,7 @@
 
 > r"" - raw string, will not interpret \n or others
 
-> Python provides a built-in module called re, you have to import re to use it.
+> Python provides a built-in module called re for regular expressions, you have to import re to use it.
 
 > B = A[:] - to clone a list without referencing the original one while modifying the copy one.
 
@@ -88,3 +90,21 @@
 - You apply a method to a string to change its value, resulting in another string.
 
 - You can perform actions such as changing the case of characters in a string, replacing items in a string, finding items in a string, and so on using pre-built string methods.
+
+## File Reading
+
+Python uses the open() function and allows you to read and write files, providing access to the content within the file for reading. It also allows overwriting it for writing and specifies the file mode (for example, r for reading, w for writing, a for appending).
+
+- To read a file, Python uses an open function along with r.
+
+- Python uses the open with function to read and process a file attribute, that is, from open to close.
+
+- In Python, you use the open method to edit or overwrite a file.
+
+- To write a file, Python uses the open function along with w.
+
+- In Python, "a" indicates that the program has appended to the file.
+
+- In Python, “\n” signifies that the code should start on a new line.
+
+- Python uses various methods to print lines from attributes.
