@@ -196,3 +196,7 @@ The extension of a file name will let you know what type of file it is and what 
 To access data from CSV files, we can use Python libraries such as Pandas.
 
 Similarly, different methods help parse JSON, XML, and other files.
+
+## Backtesting.py
+
+Backtesting.py is a Python framework for inferring viability of trading strategies on historical (past) data. Here I written some files testing this library. They are located in the backtesting-practice and the plots folders
