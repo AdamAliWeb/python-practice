@@ -13,13 +13,15 @@ class MovingAverageCrossover(Strategy):
         self.sma_slow = self.I(talib.SMA, self.data.Close, 10)
         self.stochastic = self.I(talib.STOCH, self.data.High, self.data.Low, self.data.Close,
                                    fastk_period=14, slowk_period=3, slowd_period=3)
+        self.rsi = self.I(talib.RSI, self.data.Close, 9)
 
     def next(self):
-        if (crossover(self.sma_fast, self.sma_slow) and self.stochastic[-1][-1] > self.stochastic[-1][-2] and self.stochastic[-1][-1] < 80):
+        if (crossover(self.sma_fast, self.sma_slow) and self.stochastic[-1][-1] > self.stochastic[-1][-2] and self.stochastic[-1][-1] < 80 and self.rsi[-1] > 50):
             # print(f"Fecha: {self.data.index[-1]}", f"El supuesto mayor: {self.stochastic[-1][-1]}", f"El supuesto menor: {self.stochastic[-1][-2]}")
+            print(f"Fecha: {self.data.index[-1]}, rsi: {self.rsi[-1]}")
             self.position.close()
             self.buy()
-        elif (crossover(self.sma_slow, self.sma_fast) and self.stochastic[-1][-1] < self.stochastic[-1][-2] and self.stochastic[-1][-1] > 20):
+        elif (crossover(self.sma_slow, self.sma_fast) and self.stochastic[-1][-1] < self.stochastic[-1][-2] and self.stochastic[-1][-1] > 20 and self.rsi[-1] < 50):
             # print(f"Fecha: {self.data.index[-1]}", f"El supuesto mayor: {self.stochastic[-1][-1]}", f"El supuesto menor: {self.stochastic[-1][-2]}")
             self.position.close()
             self.sell()
