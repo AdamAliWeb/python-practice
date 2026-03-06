@@ -15,11 +15,12 @@ class MovingAverageCrossover(Strategy):
                                    fastk_period=14, slowk_period=3, slowd_period=3)
 
     def next(self):
-        if (crossover(self.sma_fast, self.sma_slow) and self.stochastic[-1] > self.stochastic[-2] and self.stochastic[-1] < 80):
-            print(f"El supuesto mayor: {self.stochastic[-1]}", f"El supuesto menor: {self.stochastic[-2]}")
+        if (crossover(self.sma_fast, self.sma_slow) and self.stochastic[-1][-1] > self.stochastic[-1][-2] and self.stochastic[-1][-1] < 80):
+            # print(f"Fecha: {self.data.index[-1]}", f"El supuesto mayor: {self.stochastic[-1][-1]}", f"El supuesto menor: {self.stochastic[-1][-2]}")
             self.position.close()
             self.buy()
-        elif (crossover(self.sma_slow, self.sma_fast) and self.stochastic[-1] < self.stochastic[-2] and self.stochastic[-1] > 20):
+        elif (crossover(self.sma_slow, self.sma_fast) and self.stochastic[-1][-1] < self.stochastic[-1][-2] and self.stochastic[-1][-1] > 20):
+            # print(f"Fecha: {self.data.index[-1]}", f"El supuesto mayor: {self.stochastic[-1][-1]}", f"El supuesto menor: {self.stochastic[-1][-2]}")
             self.position.close()
             self.sell()
 
